@@ -1,0 +1,19 @@
+{% extends 'friends/base.html' %}
+{% load i18n %}
+
+{% block friends_title %}{% trans "Import contacts" %}{% endblock %}
+
+{% block friends_content %}
+	{% if not import_in_progress %}
+		<p>{% trans "Select service from which you want to import your contacts:" %}</p>
+		<ul class="contact-importers">
+			<li><a href="{% url friends_suggestions_import_google_contacts %}">Google</a></li>
+			<li><a href="{% url friends_suggestions_import_facebook_contacts %}">Facebook</a></li>
+			<li><a href="{% url friends_suggestions_import_twitter_contacts %}">Twitter</a></li>
+			<li><a href="{% url friends_suggestions_import_yahoo_contacts %}">Yahoo</a></li>
+			<li><a href="{% url friends_suggestions_import_linkedin_contacts %}">LinkedIn</a></li>
+		</ul>
+	{% else %}
+		<p>{% trans "Import of your contacts is already running. Please wait until it finishes and then try again." %}</p>
+	{% endif %}
+{% endblock %}

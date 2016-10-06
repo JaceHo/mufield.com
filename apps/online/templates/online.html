@@ -1,0 +1,92 @@
+<html>
+<head>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link href="/static/css/ripples.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/material-wfont.min.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="container">
+<h1 align="center">MuField MOD System</h1>
+<h1> </h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h2 class="panel-title">Search</h2>
+            </div>
+            <div class="panel-body">
+                <form action="/online/order" method="post" class="form-horizontal" role="form">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input class="btn btn-success" type="submit" value="Search"/>
+                </form>
+                {% if playing.title %}
+                <h2>正在播放: {{playing.title}} {{playing.player}}</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h2 class="panel-title">已点歌曲</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-nonfluid">
+                    {% for o in order_list %}
+                    <tr>
+                        <td>{{ o.title }}</td>
+                        <td>{{ o.player }}</td>
+                        <td><a href="{{ o.url }}"><span class="glyphicon glyphicon-link"></span></a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+    <script src="/static/js/ripples.min.js"></script>
+    <script src="/static/js/material.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.material.init();
+            $("#id_title").autocomplete({
+                select: function (event, ui) {
+                    $("#id_title").val(ui.item.songname);
+                    $("#id_player").val(ui.item.artistname);
+                    return false;
+                },
+                source: function (request, response) {
+                    $.ajax({
+                    url: "http://sug.music.baidu.com/info/suggestion?format=json&version=2&from=0&callback=window.baidu.sug&word=" + encodeURIComponent(request.term),
+                    dataType: 'jsonp',
+                    success: function (data, textStatus, xhr) {
+                        // assuming data is a JavaScript array such as
+                        // ["one@abc.de", "onf@abc.de","ong@abc.de"]
+                        // and not a string
+                        //response(data);
+                        var list = [];
+                        for (i = 0; i < data.data.song.length; i++) {
+                            var song = data.data.song[i];
+                            list.push(song);
+                        }
+                        response(list);
+
+                    },
+                }); 
+                },
+                minLength: 1,
+                }).autocomplete("instance")._renderItem = function(ul, item) {
+                return $( "<li>" )
+                .append("<B>" + item.songname + "</B>" + " " + item.artistname)
+                .appendTo( ul );
+            };
+        });
+
+    </script>
+</body>
+</html>

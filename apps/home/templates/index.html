@@ -1,0 +1,163 @@
+<html lang="en" class="js not-logged-in wf-proximanova-n7-inactive wf-proximanova-n4-inactive wf-inactive">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <title>音乐田</title>
+
+    <script async="" type="text/javascript" src="/static/js/webfont.js"></script>
+
+    <meta content="noimageindex" name="robots">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1"
+          name="viewport" id="viewport">
+
+    <script type="text/javascript">
+        (function () {
+            var docElement = document.documentElement;
+            var classRE = new RegExp('(^|\\s)no-js(\\s|$)');
+            var className = docElement.className;
+            docElement.className = className.replace(classRE, '$1js$2');
+        })();
+    </script>
+
+    <link href="/static/images/ico/favicon.ico" type="image/x-icon" rel="Shortcut Icon">
+    <link rel="stylesheet" type="text/css"
+          href="/static/css/public/public-main{% if flavour == 'mobile' %}-mobile.css{% else %}.css{% endif %}">
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/bluebar.js"></script>
+    <script type="text/javascript" src="/static/js/public/slideshow.js"></script>
+
+</head>
+<body class="page-home">
+
+
+<div class="root">
+
+    <div class="page">
+        <div class="main">
+
+            <div id="home-bg"></div>
+
+            <div class="wrap">
+                <div id="iphone" class="home-phones">
+                    <div id="iphone-overlay">
+                        <img class="active last-active" src="/static/images/homepage/screenshot1.jpg">
+                        <img src="/static/images/homepage/screenshot2.jpg" style="opacity: 0;" class="active">
+                        <img src="/static/images/homepage/screenshot3.jpg">
+                        <img src="/static/images/homepage/screenshot4.jpg">
+                        <img src="/static/images/homepage/screenshot5.jpg">
+                    </div>
+
+                    <i class="home-phones-glare"></i>
+                </div>
+                <div class="content">
+                    <a class="home-login" href="https://mufield.com/accounts/login/">登录<i></i></a>
+
+                    <h1 class="mufield-title">mufield - Fast, beautiful photo sharing for your iPhone</h1>
+
+                    <div class="tab">
+                        <div class="tab-content">
+                            <h1>重新定义音乐价值</h1>
+
+                            <p>音乐田是一个<strong>知性</strong>, <strong>时尚</strong>并且<strong>高效</strong> 的音乐社交软件. </p>
+
+                            <p>听音乐成为放松、舒缓压力的必需品，大量的曲库、歌单以及电台，让聆听者无从下手，音乐成为快餐式消费，歌手与歌迷缺乏实质性互动。</p>
+
+                            <p>还等什么, It's you, ;) </p>
+
+                            <div class="platform-badge-container">
+
+                                <a onclick="
+    _gaq.push(['_trackPageview', '/download/ios/']);
+    _gaq.push(function() {
+      window.setTimeout(
+        function() {
+          window.location.href = '/download/ios/';
+        },
+        450
+      );
+    });
+    return false;
+  " href="https://mufield.com/download/ios/" class="platform-badge">
+                                    <img src="/static/images/appstore-install-badges/badge_ios_english-en.png"
+                                         class="platform-badge-image" alt="Available on the App Store">
+                                </a>
+                                <a onclick="
+    _gaq.push(['_trackPageview', '/download/android/']);
+    _gaq.push(function() {
+      window.setTimeout(
+        function() {
+          window.location.href = '/download/android/?campaign=home&amp;medium=install_link';
+        },
+        450
+      );
+    });
+    return false;
+  " href="https://mufield.com/download/android/?campaign=home&amp;medium=install_link" class="platform-badge">
+                                    <img src="/static/images/appstore-install-badges/english_get.png"
+                                         class="platform-badge-image" alt="Available on Google Play">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- .main -->
+
+
+    </div>
+    <!-- .page -->
+
+
+    <footer role="contentinfo" class="page-footer">
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li><a href="http://mufield.com/aboutus.html">关于我们</a></li>
+                    <li><a href="http://mufield.com/faq.html">帮助</a></li>
+                    <li></li>
+                    <li></li>
+                    <li><a href="http://mufield.com/api/v1/">API</a></li>
+                    <li><a href="http://mufield.com/jobs.html">招聘</a></li>
+                    <li><a href="http://mufield.com/privacy.html">隐私策略</a></li>
+                    <li><a href="http://mufield.com/terms.html">使用条款</a></li>
+                </ul>
+            </nav>
+
+            <p class="copyright">&copy; 2015 Silexone.Ltd</p>
+        </div>
+    </footer>
+
+
+    <div id="reactModalMountPoint"></div>
+</div>
+<!-- .root -->
+<script src="/static/js/polyfills/es5-shim.min.js"></script>
+<script src="/static/js/polyfills/es5-sham.min.js"></script>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18105282-1']);
+    _gaq.push(['_setDomainName', 'mufield.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(["_set", "title", "Home"]);
+    _gaq.push(["_setCustomVar", 1, "page", "Home", 3]);
+
+    _gaq.push(['_trackPageview']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>
+</html>
